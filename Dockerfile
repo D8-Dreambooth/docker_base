@@ -26,6 +26,10 @@ RUN apt install python3.10  python3.10-venv -y --no-install-recommends && \
 	ln -s /usr/bin/python3.10 /usr/bin/python && \
 	rm /usr/bin/python3 && \
 	ln -s /usr/bin/python3.10 /usr/bin/python3
+	
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+	
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python get-pip.py
 RUN pip install -U jupyterlab ipywidgets jupyter-archive
