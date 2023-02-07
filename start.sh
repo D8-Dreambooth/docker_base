@@ -1,7 +1,6 @@
 #!/bin/bash
 echo "Container Started"
 export PYTHONUNBUFFERED=1
-source /workspace/venv/bin/activate
 
 if [[ $PUBLIC_KEY ]]
 then
