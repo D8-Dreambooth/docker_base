@@ -18,13 +18,13 @@ RUN apt-get update --yes && \
 	git\
 	libgl1-mesa-glx\
 	vim\
-	software-properties-common\
+		software-properties-common\
     openssh-server &&\
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 
 
 RUN add-apt-repository ppa:deadsnakes/ppa
-RUN apt install python3.10  python3.10-venv -y --no-install-recommends && \
+RUN apt install python3.10  python3.10-venv python3-dev -y --no-install-recommends && \
 	ln -s /usr/bin/python3.10 /usr/bin/python && \
 	rm /usr/bin/python3 && \
 	ln -s /usr/bin/python3.10 /usr/bin/python3
